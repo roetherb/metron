@@ -22,8 +22,8 @@ RUN yum install -y wget
 RUN yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
 WORKDIR /usr/src
 RUN wget http://apache.cs.utah.edu/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
-RUN tar xzvf apache-maven-3.2.5-bin.tar.gz
-RUN mv apache-maven-3.2.5 /opt/maven
+RUN mkdir /opt/maven
+RUN tar xzvf apache-maven-3.2.5-bin.tar.gz -C /opt/maven
 RUN ln -s /opt/maven/bin/mvn /usr/bin/mvn
 RUN yum -y install asciidoc rpm-build rpm2cpio tar unzip xmlto zip rpmlint && yum clean all
 WORKDIR /root
